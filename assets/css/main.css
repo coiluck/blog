@@ -1,0 +1,451 @@
+@font-face {
+  font-family: 'mamelon3.5'; 
+  src: url('{{ /assets/fonts/Mamelon-3.5HiRegular.woff2 | relative_url }}') format('woff2'), 
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'mamelon3.5', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* top-barの設定 */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 2em;
+  background-color: #ff7f7e;
+  color: black;
+  padding: 10px 20px;
+  z-index: 1000;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.top-bar-text {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  flex: 1;
+}
+.custom-link {
+  color: black;
+  font-size: 4;
+  text-decoration: none; 
+}
+.custom-link:hover {
+  color: black;
+}
+.top-bar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  z-index: -1;
+}
+
+
+.content {
+    margin-top: 100px;
+    margin-bottom: 5em;
+}
+
+
+/* BlogのTopページの画像設定 */
+.image-container {
+  position: relative;
+  width: 90%;
+  height: auto; /*追加*/
+  margin: 0 auto 40px;
+  /*max-height: 400px;*/
+  overflow: hidden;
+}
+.image-container img {
+  width: 100%;
+  height: 100%;/*auto;から変更*/
+  display: block;
+  /*aspect-ratio: 3600 / 1106;*/
+  object-fit: contain;/*追加*/
+}
+@media (max-width: 767px) {
+    .image-container {
+        width: 90%;
+    }
+    .main-text {
+        font-size: 1.5em;
+    }
+    .sub-text {
+        font-size: 0.8em;
+    }
+}
+@media (max-width: 480px) {
+    .main-text {
+        font-size: 1.2em;
+    }
+    .sub-text {
+        font-size: 0.7em;
+    }
+}
+@media (min-width: 768px) {
+    .image-container {
+        width: 70%;
+    }
+}
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  width: 90%;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.main-text {
+  font-size: 2em;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.sub-text {
+  font-size: 1em;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+/* ここからTopページのブログコンテンツ */
+.blogs {
+  max-width: 90%;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+    .blogs {
+        width: 70%;
+    }
+}
+.blog-post {
+  margin-bottom: 2em;
+  max-width: 100%;
+  margin: 2em auto 0;
+}
+.post-header {  /* このクラスは個別ページと共通 */
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.post-title {
+  color: black;
+  text-decoration: none;
+  background: linear-gradient(currentcolor, currentcolor) left bottom / 100% 2px no-repeat,
+		linear-gradient(#f6d893, #f6d893) right 60% / 0 .8em no-repeat;
+  transition: background-size .4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.post-title:hover {
+  background-position: right bottom, left 60%;
+  background-size: 0 2px, 100% .8em;
+}
+@media screen and (max-width: 767px) {
+  .post-title {
+    color: black;
+    text-decoration: none;
+    border-bottom: solid 2px black;
+    background: none;
+    transition: none;
+  }
+  .post-title:hover {
+    background-position: initial;
+    background-size: initial;
+  }
+}
+.post-tags {
+  color: #666;
+  margin-top: 1em;
+　text-align: center;
+}
+.post-tags a {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 1em;
+  text-align: center;
+  text-decoration: none;
+}
+.post-meta {
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 0px;
+  margin-bottom: 0.75em;
+}
+.read-more {
+  display: inline-block;
+  margin-top: 0.8em;
+  color: #0066cc;
+  text-decoration: none;
+}
+.read-more:hover {
+  text-decoration: underline;
+}
+
+
+/* topページ下のほうにある線 */
+.line-under-posts {
+  width: 70%;
+  height: 1px;
+  background-color: #888;
+  margin: 40px auto 30px;
+}
+@media (max-width: 767px) {
+  .line-under-posts {
+    width: 90%;
+  }
+}
+
+
+/* paginate設定 */
+.pagination {
+  margin: auto;
+  padding: 20px;
+  height: 1.1em;
+  display: flex;
+  align-items: center;
+}
+.pagination a {
+  -webkit-user-select: none;
+  user-select: none;
+}
+.pagination span {
+  -webkit-user-select: none;
+  user-select: none;
+}
+.page-number {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.pagination .prev {
+  position: absolute;
+  left: 15%;
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+.pagination .prev:hover {
+  text-decoration: underline;
+}
+.pagination .next {
+  position: absolute;
+  right: 15%;
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+.pagination .next:hover {
+  text-decoration: underline;
+}
+@media (max-width: 767px) {
+    .pagination .prev {
+	left: 5%;
+    }
+    .pagination .next {
+	right: 5%;
+    }
+}
+
+
+/* 1/4みたいなやつ、PCでは広げて表示 */
+@media (min-width: 768px) {
+    .separator {
+        padding: 0 0.5em;
+    }
+}
+@media (max-width: 767px) {
+    .separator {
+        padding: 0;
+    }
+}
+
+
+/* _layouts/post.html用 */
+.post-title2 {
+  color: black;
+  text-decoration: none;
+}
+.post-tags2 {
+  color: #666;
+  margin-top: 1em;
+  text-align: center;
+}
+.post-tags2 a {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 1em;
+  text-align: center;
+  text-decoration: none;
+}
+.post-meta2 {
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 1em;
+  margin-bottom: 0.75em;
+}
+.post-excerpt a {
+  color: 000;
+}
+.post-content {
+  width: 70%;
+  margin: 0 auto;
+  line-height: 1.6;
+  margin-bottom: 2em;
+}
+@media (max-width: 767px) {
+  .post-content {
+    width: 90%;
+  }
+}
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em auto;
+}
+a.blog-link {
+  color: black;
+  text-decoration-color: black;
+}
+.line-under-meta {
+  width: 70%;
+  height: 1px;
+  background-color: #888;
+  margin: 20px auto 30px;
+}
+@media (max-width: 767px) {
+  .line-under-meta {
+    width: 90%;
+  }
+}
+
+
+/* _layouts/tag.html用 */
+.tag-head {
+  width: 90%;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .tag-head {
+    width: 70%;
+  }
+}
+.tag-pankuzu {
+  font-size: 0.9em;
+}
+.tag-pankuzu a {
+  color: #666;
+  text-decoration: none;
+}
+.tag-itirann {
+  margin-top: 20px;
+}
+
+
+/* いつの間にかあった。ほんとにいるかわからないけど消して崩れたらいやだねぇ<-bodyに適用してるからいらないと思う */
+span {
+  font-family: 'mamelon3.5', Arial, sans-serif;
+}
+
+
+/* 個別の記事のTopへボタン */
+.top-button-container {
+    position: relative;
+    top: 20px;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ff7f7e;
+    font-family: Arial, sans-serif;
+}
+.circle-button {
+    width: 20px;
+    height: 20px;
+    background-color: #ff7f7e;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+.arrow {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+.top-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+@media (min-width: 768px) {
+    .top-button-container {
+        left: 15%;
+    }
+}
+
+
+/* _layouts/post.html用 */
+.line-under-blog {
+  width: 70%;
+  height: 1px;
+  background-color: #888;
+  margin: 20px auto 20px;
+}
+@media (max-width: 767px) {
+  .line-under-blog {
+    width: 90%;
+    margin-top: 2em;
+  }
+}
+
+
+/* 脚注の色 */
+a.footnote {
+  color: #6088C6;
+  text-decoration: none;
+}
+a.footnote:visited {
+  color: #6088C6;
+}
+a.footnote:hover,
+a.footnote:focus {
+  color: #6088C6;
+  text-decoration: none;
+}
+a.reversefootnote {
+  color: #6088C6;
+  text-decoration: none;
+}
+a.reversefootnote:visited {
+  color: #6088C6;
+}
+a.reversefootnote:hover,
+a.reversefootnote:focus {
+  color: #6088C6;
+  text-decoration: none;
+}

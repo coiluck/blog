@@ -1,0 +1,79 @@
+---
+layout: default
+---
+
+<div class="image-container">
+  <picture>
+    <source srcset="{{ '/assets/images/blog-pic.avif' | relative_url }}" type="image/avif">
+    <img src="{{ '/assets/images/blog-pic.png' | relative_url }}" alt="ブログトップ画像">
+  </picture>
+  <div class="image-text">
+    <div class="main-text">革命学舎</div>
+    <div class="sub-text">書く、これしか出来ないから。</div>
+  </div>
+</div>
+
+<header class="post-header">
+  <h2 class="post-title2">{{ page.title }}</h2>
+  <p class="post-meta2">{{ page.date | date: "%Y-%m-%d" }}</p>
+  {% if page.tags %}
+    <p class="post-tags2">
+      タグ:
+      {% for tag in page.tags %}
+        <a href="{{ '/tag/' | append: tag | url_encode | relative_url }}" class="post-tag">
+          <span style="color: #ff7f7e;">#</span>{{ tag }}
+        </a>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </p>
+  {% endif %}
+</header>
+
+<div class="line-under-meta"></div>
+    
+<div class="post-content">
+  {{ content }} 
+</div>
+
+<div class="line-under-blog"></div>
+<a href="https://coiluck.github.io/blog/" class="top-button-container">
+  <div class="circle-button">
+    <span class="arrow">&lt;</span>
+  </div>
+  <span class="top-text">Top</span>
+</a>
+
+
+
+<script>
+// URLを保存
+window.addEventListener('load', function() {
+  const referrer = document.referrer;
+  if (referrer && referrer.includes('/blog/')) {
+    sessionStorage.setItem('lastListPage', referrer);
+  }
+  
+  // クリック時の挙動を設定
+  const topButton = document.querySelector('.top-button-container');
+  if (topButton) {
+    topButton.addEventListener('click', function(e) {
+      e.preventDefault(); // デフォルトの遷移を防ぐ
+      const lastPage = sessionStorage.getItem('lastListPage');
+      if (lastPage) {
+        window.location.href = lastPage;
+      } else {
+        // 外部からの人は1ページ目へ
+        window.location.href = '{{ site.baseurl }}/blog/';
+      }
+    });
+  }
+});
+</script>
+<script src="/blog/assets/scripts/open-links-in-new-tab.js" defer></script>
+<style>
+  .post-content code {
+    background-color: #f0f0f0;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: inherit;
+  }
+</style>

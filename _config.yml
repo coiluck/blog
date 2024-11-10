@@ -1,0 +1,41 @@
+# _config.yml
+title: 革命学舎
+description: ぶろぐさいと！
+baseurl: "/blog"
+url: "https://coiluck.github.io"
+
+# Excerpt settings
+excerpt_separator: <!--more-->
+excerpt_length: 150
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+# Pagination settings
+paginate: 5
+paginate_path: "/:num/"
+plugins:
+  - jekyll-paginate
+
+# Front matter defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      
+# Custom collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+  tags:
+    output: true
+    permalink: /tag/:name/
+    
+# OGP関連
+image: "/assets/images/og-image.png"

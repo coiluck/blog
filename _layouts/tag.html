@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<div class="image-container">
+  <picture>
+    <source srcset="{{ '/assets/images/blog-pic.avif' | relative_url }}" type="image/avif">
+    <img src="{{ '/assets/images/blog-pic.png' | relative_url }}" alt="ブログトップ画像">
+  </picture>
+  <div class="image-text">
+    <div class="main-text">革命学舎</div>
+    <div class="sub-text">書く、これしか出来ないから。</div>
+  </div>
+</div>
+
+<div class="tag-head">
+  <div class="tag-pankuzu">
+    <a href="{{ site.baseurl }}">Top</a> &gt;&gt; <a href="">{{ page.tag }}</a>
+  </div>
+  <div class="tag-itirann">
+    <span><strong><font color="#ff7f7e">#</font>{{ page.tag }} の記事の一覧</strong></span>
+  </div>
+</div>
+
+<div class="line-under-blog"></div>
+
+<div class="blogs">
+  {% assign tag_posts = site.posts | where: "tags", page.tag %}
+  {% if tag_posts.size > 0 %}
+    {% for post in tag_posts %}
+      <article class="blog-post">
+        <div class="post-header">
+          <h2><a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a></h2>
+          {% if post.tags %}
+            <p class="post-tags">
+              {% for tag in post.tags %}
+                <a href="{{ '/tag/' | append: tag | url_encode | relative_url }}" class="post-tag">
+                  <span style="color: #ff7f7e;">#</span>{{ tag }}
+                </a>{% unless forloop.last %}, {% endunless %}
+              {% endfor %}
+            </p>
+          {% endif %}
+        </div>
+        <p class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</p>
+        <div class="post-excerpt">
+          {% if post.custom_excerpt %}
+            {{ post.custom_excerpt }}
+          {% elsif post.content contains site.excerpt_separator %}
+            {{ post.content | split: site.excerpt_separator | first | strip_html }}
+          {% else %}
+            {{ post.content | strip_html | truncatewords: 50 }}
+          {% endif %}
+        </div>
+        <a href="{{ post.url | relative_url }}" class="read-more">続きを読む</a>
+      </article>
+    {% endfor %}
+  {% else %}
+    <p>エラー：このタグがつけられたコンテンツが見つかりませんでした</p>
+  {% endif %}
+</div>
