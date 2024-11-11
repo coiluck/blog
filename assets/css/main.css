@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'mamelon3.5'; 
-  src: url('{{ /assets/fonts/Mamelon-3.5HiRegular.woff2 | relative_url }}') format('woff2'), 
+  src: url('https://coiluck.github.io/assets/fonts/Mamelon-3.5HiRegular.woff2') format('woff2'), 
   font-weight: normal;
   font-style: normal;
 }
