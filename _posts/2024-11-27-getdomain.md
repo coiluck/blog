@@ -9,7 +9,7 @@ custom_excerpt: "ドメインを購入・割り当て、制作したノベルゲ
 ---
 **<font color="#ff7f7e">#</font>新**<br>
 ・ドメインの割り当て<br>
-・[アーニャゲーム](coiluck.moe/anya){: .blog-link }の公開<br>
+・[アーニャゲーム](https://coiluck.moe/anya){: .blog-link }の公開<br>
 ・細かな修正<br>
 <br>
 **<font color="#ff7f7e">#</font>ドメイン**<br>
