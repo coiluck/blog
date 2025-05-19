@@ -2,6 +2,7 @@
 layout: post
 title: "国境ゲーム"
 tags: 
+  - tech
   - zakkan
 date: "2024-9-30"
 published: false

@@ -2,7 +2,7 @@
 layout: post
 title: "陽の沈む場所"
 tags:
-  - zakkan
+  - tech
 date: "2025-04-22"
 custom_excerpt: "月面実験ゲームをリリースした"
 ---
