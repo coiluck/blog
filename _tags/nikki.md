@@ -2,5 +2,5 @@
 layout: tag
 tag: nikki
 title: '#nikki'
-permalink: /nikki/
+permalink: /tag/nikki/
 ---

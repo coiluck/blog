@@ -2,5 +2,5 @@
 layout: tag
 tag: story
 title: '#story'
-permalink: /story/
+permalink: /tag/story/
 ---

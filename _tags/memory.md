@@ -2,5 +2,5 @@
 layout: tag
 tag: memory
 title: '#memory'
-permalink: /memory/
+permalink: /tag/memory/
 ---
