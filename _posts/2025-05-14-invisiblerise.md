@@ -2,7 +2,7 @@
 layout: post
 title: "見えぬ白粒の周波数"
 tags:
-  - nikki
+  - story
 date: "2025-05-14"
 custom_excerpt: "無洗米が安いらしい。どこかでそんな話を聞いた。"
 ---
