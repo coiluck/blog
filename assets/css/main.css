@@ -181,7 +181,7 @@ p {
 .post-tags {
   color: #666;
   margin-top: 1em;
-　text-align: center;
+  text-align: center;
 }
 .post-tags a {
   font-size: 0.9em;
@@ -380,12 +380,13 @@ span {
 .top-button-container {
     position: relative;
     top: 20px;
-    left: 5%;
+    margin-left: 5%;
     display: flex;
     align-items: center;
     text-decoration: none;
     color: #ff7f7e;
     font-family: Arial, sans-serif;
+    width: fit-content;
 }
 .circle-button {
     width: 20px;
@@ -408,7 +409,7 @@ span {
 }
 @media (min-width: 768px) {
     .top-button-container {
-        left: 15%;
+        margin-left: 15%;
     }
 }
 
